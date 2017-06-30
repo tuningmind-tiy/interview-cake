@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
+.code {
+  font-family: 'Overpass Mono', monospace;
+}
+p {
+  padding: .5em;
+}
+
+ul {
+  padding-left: 6vw;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #585563;
+  color: #CEB992;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+header {
+  background-color: #471323;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 14vh;
+  min-height: 2em;
+}
+
+main {
+  color: #471323;
+  background-color: #73937e;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+main p {
+  text-align: left;
+}
+
+section {
+  height: 75vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2em;
+  padding-top: .5em;
+}
+
+aside {
+  width: 20vw;
+  height: 75vh;
+  color: #5B2E48;
+  background-color: #5B2E48;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  width: 10vw;
+  padding: .5em;
+  border-radius: 5em;
+  margin: 1em;
+}
+
+span {
+  font-style: italic;
+}
+
+footer {
+  width: 100vw;
+  height: 10vh;
+  min-height: 2em;
+  background-color: #73937e;
+  background-color: #5B2E48;
+  background-color: #471323;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
