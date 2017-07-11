@@ -13,4 +13,4 @@ class Stocks extends Component {
     )
   }
 }
-module.exports = Stocks
+module.export = Stocks

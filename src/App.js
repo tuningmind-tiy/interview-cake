@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import './App.css'
-import Stocks from 'Stocks-001'
+import Stocks from './components/Stocks'
 
 class App extends Component {
+  constructor(props) {
+    super(props) 
+    this.state = {
+    }
+    this.clickhandler = this.clickhandler.bind(this)
+  }
 
-  clickHandler(e) {
+  clickhandler() {
     //when you click on a button, the handler
     //returns the component whose button you
     //clicked
-    console.log(e.target.value)
   }
-
 
   render() {
     return (
@@ -20,9 +24,9 @@ class App extends Component {
         </header>
         <main>
           <aside>
-            <button id="001" value="stocks" onClick={this.clickHandler}>stocks 001</button>
+            <button id="001" onClick={this.clickhandler}>stocks 001</button>
           </aside>
-          <{}/>
+          <Stocks />
         </main>
         <footer>
           <p>getting better putting one foot<span>er</span> in front of another</p>
