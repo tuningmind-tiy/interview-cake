@@ -29,7 +29,7 @@ class App extends Component {
           <Stocks />
         </main>
         <footer>
-          <p>getting better putting one foot<span>er</span> in front of another</p>
+          <p>putting one foot<span>er</span> in front of another</p>
         </footer>
       </div>
     );
