@@ -103,4 +103,6 @@
  # auto-generated tag files
  tags
 
+ .json.gz
+
  # End of https://www.gitignore.io/api/vim,node,macos
