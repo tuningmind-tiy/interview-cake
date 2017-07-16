@@ -51,7 +51,7 @@ main p {
   text-align: left; }
 
 section {
-  height: 75vh;
+  height: 76vh;
   width: 80vw;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@ section {
 
 aside {
   width: 20vw;
-  height: 75vh;
+  height: 76vh;
   color: #5B2E48;
   background-color: #5B2E48;
   display: flex;
