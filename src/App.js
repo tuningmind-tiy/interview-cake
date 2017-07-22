@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = {
-      active: '', 
+      active: 'Home', 
       screens: {
         Home: 'Home', 
         Stocks: 'Stocks'
@@ -18,16 +18,9 @@ class App extends Component {
   }
 
   clickhandler(e) {
-    this.setActivePage(e.target.value)
+    this.setState({active: e.target.value})
   }
 
-  setActivePage(page) {
-    this.setState({active: page})
-  }
-
-  componentWillMount() {
-    this.setState({active: 'Home'})
-  }
   render() {
     const ActiveScreen = this.state.screens[this.state.active]
 
@@ -38,9 +31,10 @@ class App extends Component {
         </header>
         <main>
           <aside>
+            <button value='Home' onClick={this.clickhandler}>Home</button>
             <button value='Stocks' onClick={this.clickhandler}>stocks 001</button>
           </aside>
-        <Stocks /> 
+        { ActiveScreen }
         </main>
         <footer>
           <p>putting one foot<span>er</span> in front of another</p>

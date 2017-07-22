@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 class Home extends Component {
   render() {
     return(
-      <section>
+      <div>
         Here is where questions and my answers will appear
-      </section>
+      </div>
     )
   }
 }

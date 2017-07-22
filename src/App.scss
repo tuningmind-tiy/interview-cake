@@ -10,12 +10,17 @@
 .code {
   font-family: 'Overpass Mono', monospace;
 }
+
 p {
   padding: .7em 1em;
 }
 
 ul {
   padding-left: 6vw;
+}
+
+li {
+  width: 60%;
 }
 
 h2 {
@@ -63,8 +68,11 @@ section {
   width: 80vw;
   display: flex;
   flex-direction: column;
-  padding-left: 2em;
+  padding-left: 5%;
   padding-top: .5em;
+  p {
+    width: 60%;
+  }
 }
 
 aside {
