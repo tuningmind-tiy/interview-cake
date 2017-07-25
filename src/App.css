@@ -64,6 +64,11 @@ section {
 section p {
   width: 60%; }
 
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
 aside {
   width: 20vw;
   height: 76vh;

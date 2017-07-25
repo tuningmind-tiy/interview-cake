@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 class Home extends Component {
   render() {
     return(
-      <div>
+      <section id='home'>
         Select a problem on the left
-      </div>
+      </section>
     )
   }
 }
