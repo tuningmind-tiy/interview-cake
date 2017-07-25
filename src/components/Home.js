@@ -4,7 +4,7 @@ class Home extends Component {
   render() {
     return(
       <div>
-        Here is where questions and my answers will appear
+        Select a problem on the left
       </div>
     )
   }

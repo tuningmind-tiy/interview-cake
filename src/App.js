@@ -10,19 +10,24 @@ class App extends Component {
     this.state = {
       active: 'Home', 
       screens: {
-        Home: 'Home', 
-        Stocks: 'Stocks'
+        Home: <Home />, 
+        Stocks: <Stocks />
       }
     }
     this.clickhandler = this.clickhandler.bind(this)
+    this.showActiveScreen = this.showActiveScreen.bind(this)
   }
 
   clickhandler(e) {
     this.setState({active: e.target.value})
   }
 
+  showActiveScreen() {
+    return this.state.screens[this.state.active]
+  }
+
   render() {
-    const ActiveScreen = this.state.screens[this.state.active]
+    const ActiveScreen = this.showActiveScreen()
 
     return (
       <div className='App'>
