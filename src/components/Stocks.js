@@ -2,40 +2,39 @@ import React, { Component } from 'react'
 
 class Stocks extends Component {
 
-
-  get_max_profit() {
-    const yesterday = [10, 7, 5, 8, 11, 9]
-    const thing = yesterday.forEach((p, i) => { return(i) }) 
-    const max = Math.max(...yesterday)
-    const min = Math.min(...yesterday)
-    const sell = Number(9) + yesterday.indexOf(max)
-    const buy = Number(9) + yesterday.indexOf(min)
+  get_max_profit(yesterday) {
+    if (yesterday.length < 2) { return 'You need at least two prices' }
+    let maxSpread = 0
+    let boughtAtLow
+    let soldAtHigh
+    for (let i=0; i<yesterday.length; i++) {
+      let bought = yesterday[i]
+      for (let j=1; j<yesterday.length; j++) {
+        let sold = yesterday[j]
+        let diff = sold - bought
+        if (diff > maxSpread) {
+          maxSpread = diff
+          boughtAtLow = i
+          soldAtHigh = j
+        }
+      }
+    }
+    //const mapthing = yesterday.map((p, i) => { return(i) }) 
+    const sellTime = Number(9) + (soldAtHigh)
+    const buyTime = Number(9) + (boughtAtLow)
     return ('The best profit yesterday was purchase of ' 
-            + '$' + min 
+            + '$' + yesterday[boughtAtLow] 
             + ' at '
-            + buy%12 + ':30'
+            + (buyTime%12) + ':30'
             + ' and sale of '
-            + '$' + max 
+            + '$' + yesterday[soldAtHigh] 
             + ' at '
-            + sell%12 + ':30')
-  }
-  old_get_max_profit() {
-    const yesterday = [10, 7, 5, 8, 11, 9]
-    const max = Math.max(...yesterday)
-    const min = Math.min(...yesterday)
-    const sell = Number(9) + yesterday.indexOf(max)
-    const buy = Number(9) + yesterday.indexOf(min)
-    return ('The best profit yesterday was purchase of ' 
-            + '$' + min 
-            + ' at '
-            + buy%12 + ':30'
-            + ' and sale of '
-            + '$' + max 
-            + ' at '
-            + sell%12 + ':30')
+            + (sellTime%12) + ':30'
+            + ' for a spread of $' + maxSpread)
   }
 
   render() {
+    const yesterday = [10, 7, 5, 8, 11, 9]
     return (
       <section id='mysection'>
         <h2>Question</h2>
@@ -64,11 +63,7 @@ class Stocks extends Component {
         </div>
 
         <h2>Answer</h2>
-        <div id='answer' className='code'>{this.get_max_profit()}</div>
-
-        <h2>Consoley thing</h2>
-        <div id='console' className='code'>asdf;lkjs;df a;sldfkj; asdf;lkj;a asdfasf{this.console}</div>
-        
+        <div id='answer' className='code'>{this.get_max_profit(yesterday)}</div>
         
       </section>
     )

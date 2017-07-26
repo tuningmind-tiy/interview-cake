@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import './App.css'
 import Home from './components/Home'
 import Stocks from './components/Stocks'
+import Products from './components/Products'
 
 class App extends Component {
   constructor(props) {
     super(props) 
     this.state = {
-      active: 'Stocks', 
+      active: 'Home', 
       screens: {
         Home: <Home />, 
-        Stocks: <Stocks />
+        Stocks: <Stocks />,
+        Products: <Products />
       }, 
       height: 'inherit'
     }
@@ -54,6 +56,7 @@ class App extends Component {
           <aside style={{height:this.state.height}}>
             <button value='Home' onClick={this.clickhandler}>Home</button>
             <button value='Stocks' onClick={this.clickhandler}>stocks 001</button>
+            <button value='Products' onClick={this.clickhandler}>products 002</button>
           </aside>
         { ActiveScreen }
         </main>
