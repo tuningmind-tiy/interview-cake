@@ -2,7 +2,24 @@ import React, { Component } from 'react'
 
 class Stocks extends Component {
 
+
   get_max_profit() {
+    const yesterday = [10, 7, 5, 8, 11, 9]
+    const thing = yesterday.forEach((p, i) => { return(i) }) 
+    const max = Math.max(...yesterday)
+    const min = Math.min(...yesterday)
+    const sell = Number(9) + yesterday.indexOf(max)
+    const buy = Number(9) + yesterday.indexOf(min)
+    return ('The best profit yesterday was purchase of ' 
+            + '$' + min 
+            + ' at '
+            + buy%12 + ':30'
+            + ' and sale of '
+            + '$' + max 
+            + ' at '
+            + sell%12 + ':30')
+  }
+  old_get_max_profit() {
     const yesterday = [10, 7, 5, 8, 11, 9]
     const max = Math.max(...yesterday)
     const min = Math.min(...yesterday)
@@ -20,7 +37,7 @@ class Stocks extends Component {
 
   render() {
     return (
-      <section>
+      <section id='mysection'>
         <h2>Question</h2>
         <div id='question'>
           <p>Suppose we could access yesterday's stock prices as a list, where:</p>
@@ -47,7 +64,12 @@ class Stocks extends Component {
         </div>
 
         <h2>Answer</h2>
-        <p id='answer' className='code'>{this.get_max_profit()}</p>
+        <div id='answer' className='code'>{this.get_max_profit()}</div>
+
+        <h2>Consoley thing</h2>
+        <div id='console' className='code'>asdf;lkjs;df a;sldfkj; asdf;lkj;a asdfasf{this.console}</div>
+        
+        
       </section>
     )
   }

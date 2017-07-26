@@ -11,16 +11,13 @@
   font-family: 'Overpass Mono', monospace;
 }
 
-p {
-  padding: .7em 1em;
-}
-
 ul {
   padding-left: 6vw;
 }
 
 li {
   width: 60%;
+  padding-top: 1em;
 }
 
 h2 {
@@ -39,6 +36,10 @@ body {
   align-items: center;
 }
 
+.App {
+  min-height: 100vh;
+}
+
 header {
   background-color: #471323;
   display: flex;
@@ -51,29 +52,43 @@ header {
 }
 
 main {
-  min-height: 76vh;
   color: #471323;
   background-color: #73937e;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
-main p {
-  text-align: left;
-}
-
 section {
-  height: 76vh;
   width: 80vw;
   display: flex;
   flex-direction: column;
   padding-left: 5%;
   padding-top: .5em;
-  p {
-    width: 60%;
+  min-height: 40em;
+  div {
+    width: 90%;
+    text-align: left;
   }
+}
+
+section div {
+  padding-left: 5vw;
+}
+
+div p {
+  padding-top: 1em;
+}
+
+aside {
+  background-color: #396247;
+  width: 20vw;
+  color: #5B2E48;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
 }
 
 #home {
@@ -82,14 +97,8 @@ section {
   justify-content: center;
 }
 
-aside {
-  width: 20vw;
-  height: 76vh;
-  color: #5B2E48;
-  background-color: #5B2E48;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+button:first-child {
+  margin-top: 2em;
 }
 
 button {
@@ -100,6 +109,7 @@ button {
   font-size: 1vw;
   background-color: #99AFA0;
   outline: none;
+  min-height: 3em;
 }
  
 button:hover {
@@ -121,4 +131,8 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 200px) {
+  font-size: 12px;
 }

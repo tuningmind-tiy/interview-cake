@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { EventEmitter } from 'events'
 import './App.css'
 import Home from './components/Home'
 import Stocks from './components/Stocks'
@@ -8,18 +7,35 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = {
-      active: 'Home', 
+      active: 'Stocks', 
       screens: {
         Home: <Home />, 
         Stocks: <Stocks />
-      }
+      }, 
+      height: 'inherit'
     }
     this.clickhandler = this.clickhandler.bind(this)
     this.showActiveScreen = this.showActiveScreen.bind(this)
   }
 
   clickhandler(e) {
-    this.setState({active: e.target.value})
+    this.setState({
+      active: e.target.value,
+    })
+  }
+  
+  componentDidMount() {
+      this.setState({
+        height: document.getElementById('mysection').clientHeight
+      })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.height !== document.getElementById('mysection').clientHeight) {
+      this.setState({
+        height: document.getElementById('mysection').clientHeight
+      })
+    }
   }
 
   showActiveScreen() {
@@ -35,7 +51,7 @@ class App extends Component {
           <h1>Interview Cake</h1>
         </header>
         <main>
-          <aside>
+          <aside style={{height:this.state.height}}>
             <button value='Home' onClick={this.clickhandler}>Home</button>
             <button value='Stocks' onClick={this.clickhandler}>stocks 001</button>
           </aside>
