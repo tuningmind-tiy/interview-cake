@@ -55,6 +55,7 @@ class App extends Component {
         <main>
           <aside style={{height:this.state.height}}>
             <button value='Home' onClick={this.clickhandler}>Home</button>
+            <button><a href='https://github.com/tuningmind-tiy/interview-cake'>Source</a></button>
             <button value='Stocks' onClick={this.clickhandler}>stocks 001</button>
             <button value='Products' onClick={this.clickhandler}>products 002</button>
           </aside>

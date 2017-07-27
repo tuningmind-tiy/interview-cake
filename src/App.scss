@@ -10,6 +10,11 @@
 .code {
   font-family: 'Overpass Mono', monospace;
 }
+a {
+  text-decoration: none;
+  color: #471323;
+  color: black;
+}
 
 ul {
   padding-left: 6vw;
@@ -102,11 +107,11 @@ button:first-child {
 }
 
 button {
-  width: 12vw;
+  width: 18vw;
   padding: .7em;
   border-radius: 5em;
   margin: 1em;
-  font-size: 1vw;
+  font-size: 1.8vw;
   background-color: #99AFA0;
   outline: none;
   min-height: 3em;
