@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = {
-      active: 'Home', 
+      active: 'Products', 
       screens: {
         Home: <Home />, 
         Stocks: <Stocks />,
@@ -61,7 +61,7 @@ class App extends Component {
         { ActiveScreen }
         </main>
         <footer>
-          <p>putting one foot<span>er</span> in front of another</p>
+          <p>putting one foot<span className='italic'>er</span> in front of another</p>
         </footer>
       </div>
     );
