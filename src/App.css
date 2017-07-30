@@ -118,6 +118,9 @@ footer {
   justify-content: center;
   align-items: center; }
 
+footer p {
+  padding-top: 0; }
+
 @media screen and (max-width: 500px) {
   body {
     font-size: 15px; }
@@ -126,7 +129,15 @@ footer {
   button {
     width: 19vw; } }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 15px; }
+  aside {
+    width: 20vw; }
+  button {
+    width: 19vw; } }
+
+@media screen and (min-width: 501px) and (max-width: 600px) {
   body {
     font-size: 15px; }
   aside {
