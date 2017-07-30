@@ -25,7 +25,7 @@ class App extends Component {
       active: e.target.value,
     })
   }
-  
+
   componentDidMount() {
       this.setState({
         height: document.getElementById('mysection').clientHeight
