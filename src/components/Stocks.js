@@ -3,6 +3,30 @@ import React, { Component } from 'react'
 class Stocks extends Component {
 
   get_max_profit(yesterday) {
+    let minPrice = yesterday[0]
+    let maxProfit = 0
+    let phrase = ''
+    for (let i=0; i<yesterday.length; i++) {
+      let currentPrice = yesterday[i]
+      minPrice = Math.min(minPrice, currentPrice)
+      let potentialProfit = currentPrice - minPrice
+      maxProfit = Math.max(maxProfit, potentialProfit)
+      console.log("yesterday[i]: ", i, yesterday[i])
+      phrase = ('The best profit yesterday was purchase of ' 
+          + '$' + yesterday[yesterday.indexOf(minPrice)] 
+          + ' at '
+          + ((Number(9) + yesterday.indexOf(minPrice)%12) + ':30'
+          + ' and sale of '
+          + '$' + yesterday[yesterday.indexOf(minPrice + maxProfit)] 
+          + ' at '
+          + ((Number(9) + yesterday.indexOf(minPrice + maxProfit))%12) + ':30'
+          + ' for a spread of $' + maxProfit)
+      )
+    }
+    return phrase 
+  }
+
+  old_get_max_profit(yesterday) {
     if (yesterday.length < 2) { return 'You need at least two prices' }
     let maxSpread = 0
     let boughtAtLow

@@ -1,28 +1,36 @@
 import React, { Component } from 'react'
 
 class Products extends Component {
-  // The product of all the integers except the integer at each index can be broken down into:
-  // the product of all the integers before each index
-  // the product of all the integers after each index.
-  // To start, let's just get the product of all the integers before each index.
+
+  constructor() {
+    super()
+    this.helper = this.helper.bind(this)
+  }
+
+  helper(i, j, array, before) {
+    if (j < i) { 
+      let firsthalf = array.slice(0, j)
+      console.log("slice: ", firsthalf)
+      firsthalf.forEach((v, j) => { 
+        if (i === j) { return before *= 1 } 
+        else { return array[i] === 0 ? before : before *= array[j] }
+        console.log("before: ", before)
+        //return array[i] === 0 ? before : before *= v } )
+      })
+    }
+  }
 
   getProductsOfAllIntsExceptAtIndex(array) {
-    const productsArray = []
+    let productsArray = []
+    let before = 1
     for (let i=0; i<array.length; i++) {
-      let accumulator = 1
-      let before = 1
-      let after = 1
       for (let j=0; j<array.length; j++) {
-        console.log("array.slice(0, j): ", array.slice(0, j)) 
-        if (j < i) { before = array.slice(0, j).forEach((v) => { return before *= v })}
-        console.log("before: ", before)
-        if (j === i) { accumulator *= 1 } 
-        else { array[i] === 0 ? accumulator : accumulator *= array[j] }
+        this.helper(i, j, array, before)
       }
-      productsArray.push(accumulator)
     }
     return productsArray 
   }
+
   usingNestedForLoops_getProductsOfAllIntsExceptAtIndex(array) {
     const productsArray = []
     for (let i=0; i<array.length; i++) {
@@ -59,6 +67,9 @@ class Products extends Component {
     const array2 = [1, 2, 6, 5, 9]
     const product2 = this.getProductsOfAllIntsExceptAtIndex(array2)
     const answer2 = this.prettyPrint(product2)
+    const array3 = [3, 1, 2, 5, 6, 4]
+    const product3 = this.getProductsOfAllIntsExceptAtIndex(array3)
+    const answer3 = this.prettyPrint(product3)
 
     return(
       <section id='mysection'>
@@ -74,7 +85,12 @@ class Products extends Component {
           </p>
           <p>
             For example, [1, 7, 3, 4] should return [84, 12, 28, 21].
-            For example, [1, 2, 6, 5, 9] should return [540, 270, 90, 108, 60].
+          </p>
+          <p>
+            [1, 2, 6, 5, 9] should return [540, 270, 90, 108, 60].
+          </p>
+          <p>
+            [3, 1, 2, 5, 6, 4] should return [1, 3, 3, 6, 30, 180] for the array of the products of all the integers before each index
           </p>
         </div>
 

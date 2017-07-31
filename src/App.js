@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = {
-      active: 'Products', 
+      active: 'Stocks', 
       screens: {
         Home: <Home />, 
         Stocks: <Stocks />,
