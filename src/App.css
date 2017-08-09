@@ -11,8 +11,7 @@
 
 a {
   text-decoration: none;
-  color: #471323;
-  color: black; }
+  color: #471323; }
 
 ul {
   padding-left: 6vw; }
@@ -21,24 +20,27 @@ li {
   width: 60%;
   padding-top: 1em; }
 
-h2 {
+h2:first-child {
   padding-top: 2vh; }
+
+.App {
+  font-size: 18px; }
 
 body {
   min-height: 100vh;
+  min-width: 100vw;
+  max-height: 100vh;
   background-color: #585563;
+  color: #471323;
   color: #CEB992;
-  font-size: 18px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center; }
 
-.App {
-  min-height: 100vh; }
-
 header {
+  color: blanchedalmond;
   background-color: #471323;
   display: flex;
   flex-direction: column;
@@ -60,7 +62,7 @@ section {
   width: 80vw;
   display: flex;
   flex-direction: column;
-  padding-left: 5%;
+  padding-left: 2em;
   padding-top: .5em;
   min-height: 40em; }
 
@@ -76,7 +78,7 @@ div p {
 
 aside {
   background-color: #396247;
-  width: 18vw;
+  width: 20vw;
   color: #5B2E48;
   display: flex;
   flex-direction: column;
@@ -92,18 +94,40 @@ button:first-child {
   margin-top: 2em; }
 
 button {
-  width: 14vw;
+  width: 18vw;
   padding: .7em;
   border-radius: 5em;
   margin: 1em;
   font-size: .7em;
   background-color: #99AFA0;
   outline: none;
-  min-height: 3em;
+  min-height: 2em;
   text-align: center; }
 
 button:hover {
   background-color: #396247; }
+
+#mysection ul {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 19vh;
+  padding-left: 5vw; }
+
+#mysection ul li {
+  padding: 0;
+  margin: 0; }
+
+#mysection ul li button {
+  color: #471323;
+  width: 30vw;
+  font-size: 1em;
+  padding: 0;
+  margin: 0; }
+
+#test-buttons {
+  list-style-type: none; }
 
 .italic {
   font-style: italic; }
@@ -122,6 +146,8 @@ footer p {
   padding-top: 0; }
 
 @media screen and (max-width: 500px) {
+  .App {
+    font-size: 3vw; }
   body {
     font-size: 15px; }
   aside {
@@ -130,6 +156,8 @@ footer p {
     width: 19vw; } }
 
 @media screen and (max-width: 500px) {
+  .App {
+    font-size: 3vw; }
   body {
     font-size: 15px; }
   aside {
@@ -138,6 +166,8 @@ footer p {
     width: 19vw; } }
 
 @media screen and (min-width: 501px) and (max-width: 600px) {
+  .App {
+    font-size: 3vw; }
   body {
     font-size: 15px; }
   aside {

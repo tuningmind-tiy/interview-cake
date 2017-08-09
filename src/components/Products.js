@@ -12,9 +12,9 @@ class Products extends Component {
       let firsthalf = array.slice(0, j)
       console.log("slice: ", firsthalf)
       firsthalf.forEach((v, j) => { 
+        console.log("before: ", before)
         if (i === j) { return before *= 1 } 
         else { return array[i] === 0 ? before : before *= array[j] }
-        console.log("before: ", before)
         //return array[i] === 0 ? before : before *= v } )
       })
     }
@@ -38,6 +38,7 @@ class Products extends Component {
       for (let j=0; j<array.length; j++) {
         if (i === j) { accumulator *= 1 } 
         else { array[i] === 0 ? accumulator : accumulator *= array[j] }
+        console.log("accumulator: ", accumulator)
       }
       productsArray.push(accumulator)
     }
@@ -97,6 +98,7 @@ class Products extends Component {
         <h2>Answer</h2>
         <div id='answer' className='code'>{answer1}</div>
         <div id='answer' className='code'>{answer2}</div>
+        <div id='answer' className='code'>{answer3}</div>
         
       </section>
     )

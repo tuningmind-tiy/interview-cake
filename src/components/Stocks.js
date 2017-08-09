@@ -1,18 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react' 
 
 class Stocks extends Component {
+  constructor() {
+    super() 
+    this.state = {
+      yesterday: []
+    }
+    this.setYesterdaysPrices = this.setYesterdaysPrices.bind(this)
+    this.clickHandler = this.clickHandler.bind(this)
+  }
 
   get_max_profit(yesterday) {
+    console.log("typeof(yesterday): ", typeof(yesterday))
+    console.log("yesterday: ", yesterday)
+    if (yesterday.length < 2) { return 'You need at least two prices' }
+    const finalPrice = yesterday[yesterday.length-1]
+
     let minPrice = yesterday[0]
-    let maxProfit = 0
-    let phrase = ''
-    for (let i=0; i<yesterday.length; i++) {
+    //let maxProfit = Math.max(...yesterday) - Math.min(...yesterday)
+    let maxProfit = yesterday[1] - yesterday[0]
+    for (let i=1; i<yesterday.length; i++) {
       let currentPrice = yesterday[i]
-      minPrice = Math.min(minPrice, currentPrice)
       let potentialProfit = currentPrice - minPrice
       maxProfit = Math.max(maxProfit, potentialProfit)
-      console.log("yesterday[i]: ", i, yesterday[i])
-      phrase = ('The best profit yesterday was purchase of ' 
+      minPrice = Math.min(minPrice, currentPrice) 
+    }
+
+    if ( maxProfit < 0 ) { 
+      return 'No profit was possible yesterday because the price went down all day'
+    } 
+    else if ( finalPrice === minPrice ) {
+      return 'No profit was possible yesterday because the price did not change all day'
+    } else {
+      let phrase = ('The best profit yesterday was purchase of ' 
           + '$' + yesterday[yesterday.indexOf(minPrice)] 
           + ' at '
           + ((Number(9) + yesterday.indexOf(minPrice)%12) + ':30'
@@ -22,8 +42,8 @@ class Stocks extends Component {
           + ((Number(9) + yesterday.indexOf(minPrice + maxProfit))%12) + ':30'
           + ' for a spread of $' + maxProfit)
       )
+      return phrase 
     }
-    return phrase 
   }
 
   old_get_max_profit(yesterday) {
@@ -57,8 +77,15 @@ class Stocks extends Component {
             + ' for a spread of $' + maxSpread)
   }
 
+  clickHandler(e) {
+    this.setYesterdaysPrices((e.target.value).split(", ").map((c) => Number(c)))
+  }
+
+  setYesterdaysPrices(array) {
+    this.setState({yesterday: array})
+  }
+
   render() {
-    const yesterday = [10, 7, 5, 8, 11, 9]
     return (
       <section id='mysection'>
         <h2>Question</h2>
@@ -86,8 +113,21 @@ class Stocks extends Component {
           </p>
         </div>
 
+        <ul id="test-buttons">
+          <li><button 
+                onClick={this.clickHandler}
+                value='10, 7, 5, 8, 11, 9'>10, 7, 5, 8, 11, 9</button></li>
+          <li><button 
+                onClick={this.clickHandler}
+                value='10, 9, 8, 7, 6, 5'>10, 9, 8, 7, 6, 5</button></li>
+          <li><button 
+                onClick={this.clickHandler}
+                value='10, 10, 10, 10, 10'>10, 10, 10, 10, 10</button></li>
+        </ul>
         <h2>Answer</h2>
-        <div id='answer' className='code'>{this.get_max_profit(yesterday)}</div>
+        <div id='answer' className='code'>
+           {this.get_max_profit(this.state.yesterday)}
+        </div>
         
       </section>
     )
