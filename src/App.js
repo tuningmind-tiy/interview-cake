@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+      console.log("clientHeight: ", document.getElementById('mysection').clientHeight)
       this.setState({
         height: document.getElementById('mysection').clientHeight
       })

@@ -63,12 +63,10 @@ section {
   display: flex;
   flex-direction: column;
   padding-left: 2em;
-  padding-top: .5em;
-  min-height: 40em; }
-
-section div {
-  width: 90%;
-  text-align: left; }
+  padding-top: .5em; }
+  section div {
+    width: 90%;
+    text-align: left; }
 
 section div {
   padding-left: 5vw; }
@@ -114,17 +112,15 @@ button:hover {
   justify-content: space-around;
   height: 19vh;
   padding-left: 5vw; }
-
-#mysection ul li {
-  padding: 0;
-  margin: 0; }
-
-#mysection ul li button {
-  color: #471323;
-  width: 30vw;
-  font-size: 1em;
-  padding: 0;
-  margin: 0; }
+  #mysection ul li {
+    padding: 0;
+    margin: 0; }
+    #mysection ul li button {
+      color: #471323;
+      width: 30vw;
+      font-size: 1em;
+      padding: 0;
+      margin: 0; }
 
 #test-buttons {
   list-style-type: none; }
@@ -141,9 +137,8 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center; }
-
-footer p {
-  padding-top: 0; }
+  footer p {
+    padding-top: 0; }
 
 @media screen and (max-width: 500px) {
   .App {

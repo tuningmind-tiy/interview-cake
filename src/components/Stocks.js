@@ -11,13 +11,11 @@ class Stocks extends Component {
   }
 
   get_max_profit(yesterday) {
-    console.log("typeof(yesterday): ", typeof(yesterday))
-    console.log("yesterday: ", yesterday)
-    if (yesterday.length < 2) { return 'You need at least two prices' }
+    if (yesterday.length < 2) { return 'Click a button ↑ because you need at least two prices' }
     const finalPrice = yesterday[yesterday.length-1]
 
-    let minPrice = yesterday[0]
     //let maxProfit = Math.max(...yesterday) - Math.min(...yesterday)
+    let minPrice = yesterday[0]
     let maxProfit = yesterday[1] - yesterday[0]
     for (let i=1; i<yesterday.length; i++) {
       let currentPrice = yesterday[i]
@@ -35,11 +33,11 @@ class Stocks extends Component {
       let phrase = ('The best profit yesterday was purchase of ' 
           + '$' + yesterday[yesterday.indexOf(minPrice)] 
           + ' at '
-          + ((Number(9) + yesterday.indexOf(minPrice)%12) + ':30'
+          + ((Number(9) + ':3' + yesterday.indexOf(minPrice)) 
           + ' and sale of '
           + '$' + yesterday[yesterday.indexOf(minPrice + maxProfit)] 
           + ' at '
-          + ((Number(9) + yesterday.indexOf(minPrice + maxProfit))%12) + ':30'
+          + ((Number(9) + ':3' + yesterday.indexOf(minPrice + maxProfit)))
           + ' for a spread of $' + maxProfit)
       )
       return phrase 
