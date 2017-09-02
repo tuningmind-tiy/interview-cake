@@ -112,6 +112,7 @@ class Stocks extends Component {
         </div>
 
         <ul id="test-buttons">
+          <p>Choose a set of test numbers:</p>
           <li><button 
                 onClick={this.clickHandler}
                 value='10, 7, 5, 8, 11, 9'>10, 7, 5, 8, 11, 9</button></li>

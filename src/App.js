@@ -27,18 +27,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-      console.log("clientHeight: ", document.getElementById('mysection').clientHeight)
-      this.setState({
-        height: document.getElementById('mysection').clientHeight
-      })
+    this.setState({
+      height: document.getElementById('mysection').clientHeight
+    })
   }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.height !== document.getElementById('mysection').clientHeight) {
-      this.setState({
-        height: document.getElementById('mysection').clientHeight
-      })
-    }
+  
+  componentWillUnmount() {
+    this.setState({
+      height: document.getElementById('mysection').clientHeight
+    })
   }
 
   showActiveScreen() {
@@ -56,7 +53,6 @@ class App extends Component {
         <main>
           <aside style={{height:this.state.height}}>
             <button value='Home' onClick={this.clickhandler}>Home</button>
-            <button><a href='https://github.com/tuningmind-tiy/interview-cake'>Source</a></button>
             <button value='Stocks' onClick={this.clickhandler}>stocks 001</button>
             <button value='Products' onClick={this.clickhandler}>products 002</button>
           </aside>
@@ -66,7 +62,7 @@ class App extends Component {
           <p>putting one foot<span className='italic'>er</span> in front of another</p>
         </footer>
       </div>
-    );
+    )
   }
 }
 

@@ -37,7 +37,7 @@ class Products extends Component {
       let accumulator = 1
       for (let j=0; j<array.length; j++) {
         if (i === j) { accumulator *= 1 } 
-        else { array[i] === 0 ? accumulator : accumulator *= array[j] }
+        else { (array[i] === 0) ? accumulator : (accumulator *= array[j]) }
         console.log("accumulator: ", accumulator)
       }
       productsArray.push(accumulator)
